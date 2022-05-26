@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EducationComponent } from './componentes/education/education.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { BannerComponent } from './componentes/banner/banner.component';
@@ -15,6 +15,8 @@ import { SkillsComponent } from './componentes/skills/skills.component';
 
  // Import ng-circle-progress
  import { NgCircleProgressModule } from 'ng-circle-progress';
+import { IniciarSesionComponent } from './componentes/iniciar-sesion/iniciar-sesion.component';
+import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
 
 
 @NgModule({
@@ -25,13 +27,16 @@ import { SkillsComponent } from './componentes/skills/skills.component';
     ExperienciaComponent,
     BannerComponent,
     AcercaDeComponent,
-    SkillsComponent
+    SkillsComponent,
+    IniciarSesionComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
 
     NgCircleProgressModule.forRoot({})
   ],
