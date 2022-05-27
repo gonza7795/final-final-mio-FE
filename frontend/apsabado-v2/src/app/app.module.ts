@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './componentes/header/header.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EducationComponent } from './componentes/education/education.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
@@ -17,6 +17,8 @@ import { SkillsComponent } from './componentes/skills/skills.component';
  import { NgCircleProgressModule } from 'ng-circle-progress';
 import { IniciarSesionComponent } from './componentes/iniciar-sesion/iniciar-sesion.component';
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
+import { EducationService } from './servicios/education.service';
+import { InterceptorService } from './servicios/interceptor.service';
 
 
 @NgModule({
@@ -40,7 +42,10 @@ import { PortfolioComponent } from './componentes/portfolio/portfolio.component'
 
     NgCircleProgressModule.forRoot({})
   ],
-  providers: [],
+  providers: [EducationService,
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true},
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
